@@ -1,3 +1,5 @@
+require 'pry'
+
 class QuestionsController < ApplicationController
   get '/questions' do
       if logged_in?
@@ -18,11 +20,15 @@ class QuestionsController < ApplicationController
 
     post '/questions' do
       if logged_in?
-        binding.pry
-        if params[:content].empty?
+        #checking if each field is filled in
+********************fix on this**************************
+        if params.each do |param|
+          param.empty?
+
           redirect to "/questions/new"
+*********where should 'end' go?******************************
         else
-          @question = current_user.questions.build(content: params[:content])
+          @question = current_user.questions.build(params)
           if @question.save
             redirect to "/questions/#{@question.id}"
           else
