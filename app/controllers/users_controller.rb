@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   get '/signup' do # creates a new user form
     if logged_in?
-      redirect to '/tweets'
+      redirect to '/questions'
     else
       erb :'users/new'
     end
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     else
       @user = User.create(:username => params[:username], :password => params[:password])#creates new user with data from 'new' form
       session[:user_id] = @user.id
-      redirect to '/tweets'
+      redirect to '/questions'
     end
   end
 

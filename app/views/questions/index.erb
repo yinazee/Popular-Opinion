@@ -1,0 +1,11 @@
+<h3>Hello,<%=current_user.username%></h3>
+
+<%if @questions.empty?%>
+  <a href="/questions/new">Ask a Question!</a>
+  <%else%>
+<%@questions.each_with_index do |question, index|%>
+<ol>
+    <%=index+1%>. <%= question.content%>
+</ol>
+  <%end%>
+<%end%>

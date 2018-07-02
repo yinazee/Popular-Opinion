@@ -2,15 +2,15 @@
 <nav>
   <%if logged_in?%>
 
-  <a href="/questions/new">Create Tweet</a>
+  <a href="/questions/new">Ask a Question!</a>
   <a href="/questions/logout">Log Out</a>
   </form>
 
   <p>Welcome, <%=current_user.username%></p>
 
   <%else%>
-  <a href="/signup"> Sign Up</a>
-  <a href="/login"> Log In</a>
+  <h3><a href="/signup"> Sign Up</a></br> or </br> <a href="/login"> Log In</a></h3>
+
   <%end%>
 
 </nav>
