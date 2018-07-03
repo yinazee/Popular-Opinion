@@ -1,12 +1,13 @@
 
 <nav>
   <%if logged_in?%>
+  <h2>Hi <%=current_user.username%>!</h2>
+  Not you? <a href="/questions/logout">Log Out</a></br>
 
-  <a href="/questions/new">Ask a Question!</a>
-  <a href="/questions/logout">Log Out</a>
+  <p><a href="/questions/new">Start by asking a Question!</a></br></p>
+
+
   </form>
-
-  <p>Welcome, <%=current_user.username%></p>
 
   <%else%>
   <h3><a href="/signup"> Sign Up</a></br> or </br> <a href="/login"> Log In</a></h3>
