@@ -6,12 +6,12 @@ class UsersController < ApplicationController
   end
 
   get '/signup' do # creates a new user form
-      erb :'users/new'
+      erb :'users/new_user'
     end
 
 
   post '/signup' do
-    if params[:username] == "" || params[:password] == ""
+    if params[:username].empty? || params[:password].empty?
       #if any of these fields are empty then redirect to /signup page
       redirect to '/signup'
     else

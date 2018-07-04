@@ -1,14 +1,9 @@
-<%binding.pry%>
+
 <h3>Hello, <%=current_user.username%></h3>
 
 Help others by answering their questions!
-<%if @questions.empty?%>
-  <a href="/questions/new">Ask a Question!</a>
-  <%else%>
-<%@questions.each_with_index do |question, index|%>
+<a href="/questions/new">Or write your own question!</a>
 
-<ol>
-    <%=index+1%>. <%= question.topic%>
-</ol>
-  <%end%>
-<%end%>
+ <%@questions.each do |question|%>
+ <li> <a href="/questions/<%= question.id %>"> <%= question.topic %> </a></li>
+ <% end %>
