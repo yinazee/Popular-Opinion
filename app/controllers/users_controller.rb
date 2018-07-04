@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class UsersController < ApplicationController
+  use Rack::Flash
 
   get '/users/:slug' do
     @user = User.find_by_slug(params[:slug])
@@ -6,14 +9,17 @@ class UsersController < ApplicationController
   end
 
   get '/signup' do # creates a new user form
+
       erb :'users/new_user'
     end
-
 
   post '/signup' do
     if params[:username].empty? || params[:password].empty?
       #if any of these fields are empty then redirect to /signup page
       redirect to '/signup'
+    # elsif params[:username] && params[:password] != database of username & passwords
+    #   flash[:message] = "Oops we can't find that account."
+    #   redirect to '/signup'
     else
       @user = User.new(:username => params[:username], :password => params[:password])#creates new user with data from 'new' form
       @user.save

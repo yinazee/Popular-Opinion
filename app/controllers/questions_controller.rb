@@ -90,21 +90,21 @@ class QuestionsController < ApplicationController
       end
     end
 
-    patch '/questions/:id' do
-      @question = Question.find_by_id(params[:id])
-      if @question != @question.user == current_user
-        if user clicks on @question.choice1.update(choice1: params[:choice1])
-      redirect to '/questions/#{@question.id}'
-    elsif user clicks on @question.choice1.update(choice1: params[:choice2])
-      redirect to '/questions/#{@question.id}'
-    end
-    end
-
-    patch '/questions/:id' do
-      @question = Question.find_by_id(params[:id])
-      if @question != @question.user == current_user
-      redirect to '/questions/#{@question.id}'
-    end
+    # patch '/questions/:id' do
+    #   @question = Question.find_by_id(params[:id])
+    #   if @question != @question.user == current_user
+    #     if user clicks on @question.choice1.update(choice1: params[:choice1])
+    #   redirect to '/questions/#{@question.id}'
+    # elsif user clicks on @question.choice1.update(choice1: params[:choice2])
+    #   redirect to '/questions/#{@question.id}'
+    # end
+    # end
+    #
+    # patch '/questions/:id' do
+    #   @question = Question.find_by_id(params[:id])
+    #   if @question != @question.user == current_user
+    #   redirect to '/questions/#{@question.id}'
+    # end
 
 
 end
